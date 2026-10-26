@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Hub | Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">Student<span>Hub</span></div>
+      <button class="menu-toggle" type="button" aria-label="Open menu">☰</button>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="notes.html">Notes</a>
+        <a href="events.html">Events</a>
+        <a href="gallery.html">Gallery</a>
+        <a class="active" href="contact.html">Contact</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Blog</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-hero">
+      <p class="eyebrow">Contact us</p>
+      <h1>We are here to help you learn better</h1>
+      <p>Send your questions and our learning team will guide you with the right support and information.</p>
+    </section>
+
+    <section class="content-panel">
+      <div class="contact-grid" style="margin-bottom: 26px;">
+        <div class="contact-card">
+          <h3>Location</h3>
+          <p>Student Hub Learning Center, Ahmedabad</p>
+        </div>
+        <div class="contact-card">
+          <h3>Email</h3>
+          <p>hello@studenthub.edu</p>
+        </div>
+        <div class="contact-card">
+          <h3>Phone</h3>
+          <p>+91 87806 27815</p>
+        </div>
+      </div>
+
+      <form class="contact-form" data-contact-form novalidate>
+        <div class="form-row">
+          <div class="input-wrap">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required>
+          </div>
+          <div class="input-wrap">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="Your email" required>
+          </div>
+        </div>
+
+        <div class="input-wrap">
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" placeholder="Your subject" required>
+        </div>
+
+        <div class="input-wrap">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+        </div>
+
+        <div class="form-msg" aria-live="polite"></div>
+        <button class="form-btn" type="submit">Send message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <h2>Student Hub</h2>
+      <p>Learn | Grow | Succeed</p>
+      <p>© 2026 Student Hub. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

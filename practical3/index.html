@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub | Home</title>
+    <meta name="description" content="Responsive StudentHub portal using CSS Grid, Flexbox, and mobile-first design." />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="brand-block">
+        <span class="brand-name">StudentHub</span>
+        <span class="brand-subtitle">Smart campus portal</span>
+      </div>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        ☰
+      </button>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="registration.html">Registration</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Responsive learning portal</p>
+          <h1 id="hero-title">A student-first interface built for every device.</h1>
+          <p>StudentHub brings together academic updates, registration, events, and student support in a clean and responsive layout.</p>
+          <div class="button-row">
+            <a class="button primary" href="registration.html">Register Now</a>
+            <a class="button secondary" href="dashboard.html">View Dashboard</a>
+          </div>
+        </div>
+
+        <aside class="info-panel" aria-label="Portal summary">
+          <h2>Why students choose it</h2>
+          <ul class="check-list">
+            <li>Mobile-first layout</li>
+            <li>Consistent responsive design</li>
+            <li>Easy academic navigation</li>
+            <li>Modern dashboard experience</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="section" aria-labelledby="stats-title">
+        <div class="section-heading">
+          <h2 id="stats-title">Daily campus overview</h2>
+          <p>Simple, readable, and useful information at a glance.</p>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card accent">
+            <span>4.8k+</span>
+            <p>Active learners</p>
+          </article>
+          <article class="stat-card">
+            <span>32</span>
+            <p>Live sessions</p>
+          </article>
+          <article class="stat-card">
+            <span>96%</span>
+            <p>Student satisfaction</p>
+          </article>
+          <article class="stat-card accent">
+            <span>18</span>
+            <p>Upcoming events</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="feature-title">
+        <div class="section-heading">
+          <h2 id="feature-title">Key features</h2>
+          <p>Designed using CSS Grid, Flexbox, and responsive media queries.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>CSS Grid Layout</h3>
+            <p>Organizes sections and cards cleanly across desktop, tablet, and mobile screens.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Flexbox Components</h3>
+            <p>Builds smooth navigation bars, button rows, and aligned dashboard panels.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Responsive Design</h3>
+            <p>Uses media queries so every page remains readable, clean, and easy to use.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 StudentHub. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,229 @@
+/* Simple & Low-Code CSS for Practical 14 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f4f6;
+    color: #1f2937;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 25px auto;
+    padding: 0 15px;
+}
+
+/* Navbar & Dynamic Menu */
+.navbar {
+    background: #1e3a8a;
+    color: #fff;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.nav-brand {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: #e0e7ff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+.nav-menu a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.user-badge {
+    background: #3b82f6;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Stat Cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.stat-card .val {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e3a8a;
+}
+
+.stat-card .label {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+/* Cards & Tables */
+.card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.card h2 {
+    font-size: 17px;
+    color: #374151;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #f3f4f6;
+    padding-bottom: 6px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+th, td {
+    padding: 9px 12px;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+}
+
+th {
+    background-color: #f9fafb;
+    font-weight: 600;
+    color: #374151;
+}
+
+tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Simple CSS Bar Chart (Advanced Extension) */
+.chart-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 25px;
+    height: 160px;
+    padding: 20px 10px 10px;
+    border-bottom: 2px solid #9ca3af;
+    background: #fafafa;
+    border-radius: 6px;
+}
+
+.chart-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+.chart-bar {
+    width: 45px;
+    background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+    border-radius: 4px 4px 0 0;
+    transition: height 0.3s ease;
+    min-height: 5px;
+}
+
+.chart-val {
+    font-size: 12px;
+    font-weight: bold;
+    color: #1e3a8a;
+    margin-bottom: 4px;
+}
+
+.chart-label {
+    font-size: 12px;
+    color: #4b5563;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+/* Badges & Buttons */
+.badge {
+    padding: 3px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 12px;
+    display: inline-block;
+}
+.badge-active { background: #d1fae5; color: #065f46; }
+.badge-inactive { background: #fee2e2; color: #991b1b; }
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btn-primary { background: #2563eb; color: #fff; }
+.btn-warning { background: #f59e0b; color: #fff; }
+
+.alert {
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 18px;
+    font-size: 13px;
+    font-weight: 500;
+}
+.alert-success { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+.alert-danger { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+
+/* Login Box */
+.login-box {
+    max-width: 360px;
+    margin: 80px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+.login-box h2 {
+    text-align: center;
+    color: #1e3a8a;
+    margin-bottom: 18px;
+}
+.login-box input {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+}

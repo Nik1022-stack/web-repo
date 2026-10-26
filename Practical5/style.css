@@ -1,0 +1,200 @@
+:root {
+  --bg: #f4f7ff;
+  --panel: #ffffff;
+  --primary: #4f46e5;
+  --primary-dark: #3730a3;
+  --danger: #dc2626;
+  --success: #16a34a;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #dbe1ef;
+  --shadow: 0 20px 35px rgba(79, 70, 229, 0.12);
+  --weak: #ef4444;
+  --medium: #f59e0b;
+  --strong: #22c55e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #eef2ff, #f9fafb);
+  color: var(--text);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+}
+
+.container {
+  width: min(980px, 100%);
+}
+
+.form-wrapper {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  margin-bottom: 0.4rem;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem 1.5rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+label,
+.label-title {
+  font-weight: 600;
+  color: var(--text);
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+select {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.8rem 0.9rem;
+  background: #f9fafb;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+  outline: none;
+}
+
+input.invalid,
+select.invalid {
+  border-color: var(--danger);
+  background: #fff5f5;
+}
+
+.error {
+  min-height: 18px;
+  color: var(--danger);
+  font-size: 0.8rem;
+}
+
+.strength-meter {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: #eef2f7;
+  overflow: hidden;
+}
+
+.strength-meter span {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  transition: width 0.25s ease, background 0.25s ease;
+}
+
+#strengthText {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.radio-group {
+  grid-column: span 2;
+}
+
+.radio-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 0.2rem;
+}
+
+.radio-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.terms {
+  margin-top: 1.2rem;
+}
+
+.checkbox-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-weight: 500;
+}
+
+.checkbox-wrap input {
+  width: 18px;
+  height: 18px;
+}
+
+.submit-btn {
+  margin-top: 1.5rem;
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.95rem 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .form-wrapper {
+    padding: 1.25rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .radio-group {
+    grid-column: auto;
+  }
+}

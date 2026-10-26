@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Events Directory</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="container">
+          <div class="brand-wrap">
+            <div class="logo">CE</div>
+            <div>
+              <p class="eyebrow">Student portal</p>
+              <h1>Campus Events</h1>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container main-content">
+        <section class="toolbar">
+          <div class="search-box">
+            <label for="searchInput" class="sr-only">Search events</label>
+            <input id="searchInput" type="search" placeholder="Search by title, category, or venue..." />
+          </div>
+
+          <div class="filter-row">
+            <label>
+              Category
+              <select id="categoryFilter">
+                <option value="all">All categories</option>
+              </select>
+            </label>
+
+            <label>
+              Sort by
+              <select id="sortSelect">
+                <option value="date-asc">Date: Earliest</option>
+                <option value="date-desc">Date: Latest</option>
+                <option value="title-asc">Title: A-Z</option>
+                <option value="title-desc">Title: Z-A</option>
+              </select>
+            </label>
+          </div>
+        </section>
+
+        <div id="statusMessage" class="status-message" aria-live="polite"></div>
+
+        <section id="eventsList" class="events-grid" aria-live="polite"></section>
+
+        <nav id="pagination" class="pagination" aria-label="Pagination"></nav>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

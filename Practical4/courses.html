@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Hub | Courses</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">Student<span>Hub</span></div>
+      <button class="menu-toggle" type="button" aria-label="Open menu">☰</button>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a class="active" href="courses.html">Courses</a>
+        <a href="notes.html">Notes</a>
+        <a href="events.html">Events</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Blog</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-hero">
+      <p class="eyebrow">Popular courses</p>
+      <h1>Build practical skills for the future</h1>
+      <p>Choose the course that matches your goals and learn through clear, structured guidance.</p>
+    </section>
+
+    <section class="content-panel">
+      <div class="filter-bar">
+        <button class="filter-btn active" type="button" data-filter="all">All</button>
+        <button class="filter-btn" type="button" data-filter="web">Web</button>
+        <button class="filter-btn" type="button" data-filter="programming">Programming</button>
+        <button class="filter-btn" type="button" data-filter="design">Design</button>
+      </div>
+
+      <div class="course-grid">
+        <article class="course-card" data-course-category="web">
+          <span class="course-tag">Web</span>
+          <h3>HTML & CSS</h3>
+          <p>Learn to build beautiful, responsive pages using layout, styling, and design principles.</p>
+        </article>
+        <article class="course-card" data-course-category="web">
+          <span class="course-tag">Web</span>
+          <h3>JavaScript</h3>
+          <p>Master interactivity, user input handling, and client-side logic for engaging websites.</p>
+        </article>
+        <article class="course-card" data-course-category="programming">
+          <span class="course-tag">Programming</span>
+          <h3>Python</h3>
+          <p>Understand programming basics, logic, and automation with a beginner-friendly approach.</p>
+        </article>
+        <article class="course-card" data-course-category="programming">
+          <span class="course-tag">Programming</span>
+          <h3>Java</h3>
+          <p>Learn object-oriented programming, problem-solving, and app development fundamentals.</p>
+        </article>
+        <article class="course-card" data-course-category="design">
+          <span class="course-tag">Design</span>
+          <h3>UI/UX Basics</h3>
+          <p>Understand user experience, layout thinking, and visual clarity in digital products.</p>
+        </article>
+        <article class="course-card" data-course-category="web">
+          <span class="course-tag">Web</span>
+          <h3>PHP & MySQL</h3>
+          <p>Build dynamic websites and learn how data is saved and managed in real projects.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <h2>Student Hub</h2>
+      <p>Learn | Grow | Succeed</p>
+      <p>© 2026 Student Hub. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

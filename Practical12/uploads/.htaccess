@@ -1,0 +1,7 @@
+# Upload Directory Protection
+# Prevent execution of any scripts in the uploads folder
+<FilesMatch "\.(php|phtml|php3|php4|php5|pl|py|jsp|asp|sh|cgi)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+Options -Indexes

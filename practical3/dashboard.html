@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub | Dashboard</title>
+    <meta name="description" content="Responsive student dashboard layout for academics and notifications." />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="brand-block">
+        <span class="brand-name">StudentHub</span>
+        <span class="brand-subtitle">Smart campus portal</span>
+      </div>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="registration.html">Registration</a></li>
+          <li><a href="dashboard.html" class="active">Dashboard</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">Dashboard</li>
+        </ol>
+      </nav>
+
+      <section class="page-shell">
+        <div class="content-panel">
+          <h1 class="page-title">Student dashboard</h1>
+          <div class="summary-grid">
+            <article class="summary-card">
+              <h3>Attendance</h3>
+              <strong>92%</strong>
+              <p>Strong engagement in classes this semester.</p>
+            </article>
+            <article class="summary-card">
+              <h3>Assignments</h3>
+              <strong>06</strong>
+              <p>Upcoming and submitted tasks this week.</p>
+            </article>
+            <article class="summary-card">
+              <h3>Events</h3>
+              <strong>04</strong>
+              <p>Workshops and seminars to attend.</p>
+            </article>
+            <article class="summary-card">
+              <h3>CGPA</h3>
+              <strong>8.9</strong>
+              <p>Consistent academic performance.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dashboard-grid">
+        <div class="panel">
+          <h2>Upcoming tasks</h2>
+          <ul class="timeline">
+            <li>Web Design assignment due on Friday.</li>
+            <li>Career guidance seminar registration open.</li>
+            <li>Programming lab practical review next Monday.</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h2>Notice board</h2>
+          <ul class="notice-list">
+            <li>Exam hall ticket distribution begins this week.</li>
+            <li>Library timing extended for final revision.</li>
+            <li>Monthly feedback form is now live.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 StudentHub. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub | Dashboard</title>
+    <meta name="description" content="Student dashboard page for academic overview and notices." />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="brand-block">
+        <p class="brand-name">StudentHub</p>
+        <p class="brand-subtitle">Smart campus portal</p>
+      </div>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="dashboard.html" aria-current="page">Dashboard</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">Dashboard</li>
+        </ol>
+      </nav>
+
+      <section class="page-shell" aria-labelledby="dashboard-title">
+        <div class="content-panel">
+          <h1 id="dashboard-title">Student dashboard</h1>
+          <div class="summary-grid">
+            <article class="summary-tile">
+              <h3>Attendance</h3>
+              <strong>92%</strong>
+              <p>Across current semester courses.</p>
+            </article>
+            <article class="summary-tile">
+              <h3>Assignments</h3>
+              <strong>06</strong>
+              <p>Pending and submitted this week.</p>
+            </article>
+            <article class="summary-tile">
+              <h3>Events</h3>
+              <strong>04</strong>
+              <p>Upcoming campus activities.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="notifications-title">
+        <div class="section-heading">
+          <h2 id="notifications-title">Notifications</h2>
+        </div>
+        <ul class="class-list">
+          <li>Web Design project submission due on Friday.</li>
+          <li>Career workshop registration open for this week.</li>
+          <li>Library access extended for exam preparation.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 StudentHub. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

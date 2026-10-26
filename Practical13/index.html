@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical 13: PHP JSON API & Fetch CRUD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Event Management (AJAX / Fetch API CRUD)</h1>
+
+        <!-- Feedback Alert Banner (Success / Error State) -->
+        <div id="alert-banner" class="alert"></div>
+
+        <!-- Loading Indicator State -->
+        <div id="loading-box" class="loading-box">
+            ⏳ Processing request, please wait...
+        </div>
+
+        <!-- Event Form Card (Add / Edit Event) -->
+        <div class="card">
+            <h2 id="form-heading">Add New Event</h2>
+            <form id="event-form">
+                <input type="hidden" id="event-id" name="id" value="">
+
+                <div class="form-row">
+                    <div class="form-group" style="flex: 2 1 300px;">
+                        <label for="title">Event Title *</label>
+                        <input type="text" id="title" required placeholder="e.g. AI & Robotics Symposium">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category *</label>
+                        <select id="category" required>
+                            <option value="">Select Category</option>
+                            <option value="Technical">Technical</option>
+                            <option value="Workshop">Workshop</option>
+                            <option value="Seminar">Seminar</option>
+                            <option value="Cultural">Cultural</option>
+                            <option value="Sports">Sports</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="event_date">Event Date *</label>
+                        <input type="date" id="event_date" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group" style="flex: 2 1 300px;">
+                        <label for="venue">Venue *</label>
+                        <input type="text" id="venue" required placeholder="e.g. Main Auditorium">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select id="status">
+                            <option value="Open">Open</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full">
+                        <label for="description">Description</label>
+                        <textarea id="description" placeholder="Brief event description..."></textarea>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" id="submit-btn" class="btn btn-success">+ Add Event</button>
+                    <button type="button" id="cancel-btn" class="btn btn-secondary" style="display: none;" onclick="resetForm()">Cancel Edit</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Search & Filter Card (Intermediate Extension: Debounce Search) -->
+        <div class="card">
+            <h2>Search and Filter (Asynchronous)</h2>
+            <div class="filter-bar">
+                <input type="text" id="search-input" placeholder="Type to search (debounced)...">
+
+                <select id="category-filter" onchange="applyFilter()">
+                    <option value="">All Categories</option>
+                    <option value="Technical">Technical</option>
+                    <option value="Workshop">Workshop</option>
+                    <option value="Seminar">Seminar</option>
+                    <option value="Cultural">Cultural</option>
+                    <option value="Sports">Sports</option>
+                </select>
+
+                <button type="button" class="btn btn-secondary btn-sm" onclick="clearFilters()">Reset</button>
+            </div>
+            <div class="search-hint">💡 Search query fires automatically with <strong>300ms debounce</strong> as you type.</div>
+        </div>
+
+        <!-- Dynamic Events Table Card -->
+        <div class="card">
+            <h2>Scheduled Events (<span id="event-count">0</span>)</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title & Description</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Venue</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="events-tbody">
+                        <tr>
+                            <td colspan="7" style="text-align: center; color: #6b7280; padding: 20px;">
+                                Loading events via Fetch API...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Consuming the JSON API via Fetch API -->
+    <script>
+        const API_URL = 'api.php';
+        const alertBanner = document.getElementById('alert-banner');
+        const loadingBox = document.getElementById('loading-box');
+        const eventForm = document.getElementById('event-form');
+        const formHeading = document.getElementById('form-heading');
+        const submitBtn = document.getElementById('submit-btn');
+        const cancelBtn = document.getElementById('cancel-btn');
+        const eventsTbody = document.getElementById('events-tbody');
+        const eventCount = document.getElementById('event-count');
+        const searchInput = document.getElementById('search-input');
+        const categoryFilter = document.getElementById('category-filter');
+
+        let debounceTimer = null;
+
+        // Display flash notification
+        function showAlert(message, type = 'success') {
+            alertBanner.className = `alert alert-${type} show`;
+            alertBanner.innerHTML = message;
+            setTimeout(() => {
+                alertBanner.className = 'alert';
+            }, 4000);
+        }
+
+        // Show/Hide Loading Indicator
+        function setLoading(isLoading) {
+            if (isLoading) {
+                loadingBox.classList.add('show');
+            } else {
+                loadingBox.classList.remove('show');
+            }
+        }
+
+        // 1. Fetch Events List (GET API)
+        async function fetchEvents(search = '', category = '') {
+            setLoading(true);
+            try {
+                let url = `${API_URL}?search=${encodeURIComponent(search)}&category=${encodeURIComponent(category)}`;
+                const response = await fetch(url);
+                const result = await response.json();
+
+                if (result.success) {
+                    renderTable(result.data);
+                } else {
+                    showAlert(result.message || 'Failed to fetch events', 'danger');
+                }
+            } catch (err) {
+                showAlert('Network or API server error: ' + err.message, 'danger');
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        // Render Table Rows Dynamically
+        function renderTable(events) {
+            eventCount.textContent = events.length;
+            if (events.length === 0) {
+                eventsTbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" style="text-align:center; padding:20px; color:#6b7280;">
+                            No events found matching your search.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            let rows = '';
+            events.forEach(evt => {
+                const badgeClass = evt.status.toLowerCase() === 'open' ? 'badge-open' : 'badge-closed';
+                const descSnippet = evt.description ? `<div style="font-size:12px; color:#6b7280; margin-top:3px;">${escapeHtml(evt.description)}</div>` : '';
+
+                rows += `
+                    <tr>
+                        <td>${evt.id}</td>
+                        <td>
+                            <strong>${escapeHtml(evt.title)}</strong>
+                            ${descSnippet}
+                        </td>
+                        <td><span class="category-tag">${escapeHtml(evt.category)}</span></td>
+                        <td>${escapeHtml(evt.event_date)}</td>
+                        <td>${escapeHtml(evt.venue)}</td>
+                        <td><span class="badge ${badgeClass}">${escapeHtml(evt.status)}</span></td>
+                        <td class="actions-cell">
+                            <button class="btn btn-primary btn-sm" onclick="editEvent(${evt.id})">Edit</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteEvent(${evt.id}, '${escapeHtml(evt.title)}')">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            });
+            eventsTbody.innerHTML = rows;
+        }
+
+        // Helper to escape HTML characters
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.toString()
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        // 2. Add or Update Event (POST API)
+        eventForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const id = document.getElementById('event-id').value;
+            const payload = {
+                title: document.getElementById('title').value.trim(),
+                category: document.getElementById('category').value,
+                event_date: document.getElementById('event_date').value,
+                venue: document.getElementById('venue').value.trim(),
+                status: document.getElementById('status').value,
+                description: document.getElementById('description').value.trim()
+            };
+
+            const isEdit = id !== '';
+            if (isEdit) {
+                payload.id = parseInt(id, 10);
+            }
+
+            const action = isEdit ? 'update' : 'create';
+            setLoading(true);
+
+            try {
+                const response = await fetch(`${API_URL}?action=${action}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+
+                if (result.success) {
+                    showAlert(result.message, 'success');
+                    resetForm();
+                    fetchEvents(searchInput.value, categoryFilter.value);
+                } else {
+                    showAlert(result.message || 'Action failed', 'danger');
+                }
+            } catch (err) {
+                showAlert('Network error: ' + err.message, 'danger');
+            } finally {
+                setLoading(false);
+            }
+        });
+
+        // 3. Edit Event (GET single record by ID)
+        async function editEvent(id) {
+            setLoading(true);
+            try {
+                const response = await fetch(`${API_URL}?id=${id}`);
+                const result = await response.json();
+
+                if (result.success && result.data) {
+                    const evt = result.data;
+                    document.getElementById('event-id').value = evt.id;
+                    document.getElementById('title').value = evt.title;
+                    document.getElementById('category').value = evt.category;
+                    document.getElementById('event_date').value = evt.event_date;
+                    document.getElementById('venue').value = evt.venue;
+                    document.getElementById('status').value = evt.status;
+                    document.getElementById('description').value = evt.description || '';
+
+                    formHeading.textContent = `Edit Event #${evt.id}`;
+                    submitBtn.textContent = 'Update Event';
+                    submitBtn.className = 'btn btn-primary';
+                    cancelBtn.style.display = 'inline-block';
+
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    showAlert(result.message || 'Could not fetch event details', 'danger');
+                }
+            } catch (err) {
+                showAlert('Error loading event for editing: ' + err.message, 'danger');
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        // Cancel Edit & Reset Form
+        function resetForm() {
+            eventForm.reset();
+            document.getElementById('event-id').value = '';
+            formHeading.textContent = 'Add New Event';
+            submitBtn.textContent = '+ Add Event';
+            submitBtn.className = 'btn btn-success';
+            cancelBtn.style.display = 'none';
+        }
+
+        // 4. Delete Event (POST / DELETE API)
+        async function deleteEvent(id, title) {
+            if (!confirm(`Are you sure you want to delete event "${title}"?`)) {
+                return;
+            }
+
+            setLoading(true);
+            try {
+                const response = await fetch(`${API_URL}?action=delete`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: id })
+                });
+                const result = await response.json();
+
+                if (result.success) {
+                    showAlert(result.message, 'success');
+                    fetchEvents(searchInput.value, categoryFilter.value);
+                } else {
+                    showAlert(result.message || 'Deletion failed', 'danger');
+                }
+            } catch (err) {
+                showAlert('Error deleting event: ' + err.message, 'danger');
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        // 5. Intermediate Extension: Debounce Search Input (300ms)
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                fetchEvents(e.target.value, categoryFilter.value);
+            }, 300);
+        });
+
+        function applyFilter() {
+            fetchEvents(searchInput.value, categoryFilter.value);
+        }
+
+        function clearFilters() {
+            searchInput.value = '';
+            categoryFilter.value = '';
+            fetchEvents();
+        }
+
+        // Initial Load on Page Open
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchEvents();
+        });
+    </script>
+</body>
+</html>

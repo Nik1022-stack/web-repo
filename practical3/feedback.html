@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub | Feedback</title>
+    <meta name="description" content="Responsive student feedback form for campus services and learning experience." />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="brand-block">
+        <span class="brand-name">StudentHub</span>
+        <span class="brand-subtitle">Smart campus portal</span>
+      </div>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="registration.html">Registration</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="feedback.html" class="active">Feedback</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">Feedback</li>
+        </ol>
+      </nav>
+
+      <section class="page-shell feedback-grid">
+        <div class="form-panel">
+          <h2>Share your feedback</h2>
+          <form class="form-grid">
+            <div class="form-group">
+              <label for="feedback-name">Name</label>
+              <input id="feedback-name" type="text" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+              <label for="feedback-type">Feedback type</label>
+              <select id="feedback-type">
+                <option selected>Select type</option>
+                <option>Course</option>
+                <option>Campus service</option>
+                <option>Event</option>
+                <option>Website</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="feedback-message">Your comments</label>
+              <textarea id="feedback-message" rows="6" placeholder="Tell us how we can improve..."></textarea>
+            </div>
+            <button type="submit">Submit feedback</button>
+          </form>
+        </div>
+
+        <aside class="panel">
+          <h2>Why feedback matters</h2>
+          <p class="panel-copy">Your suggestions help improve student support, learning experiences, and campus services.</p>
+          <ul class="list-check">
+            <li>Improve course experience</li>
+            <li>Enhance student services</li>
+            <li>Support future campus growth</li>
+          </ul>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 StudentHub. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

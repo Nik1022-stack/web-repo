@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "title": "Tech Expo 2026",
+    "category": "Technology",
+    "date": "2026-09-25",
+    "venue": "Innovation Hall",
+    "description": "A showcase of student prototypes, AI demos, and startup ideas.",
+    "image": "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 2,
+    "title": "Cultural Fest",
+    "category": "Culture",
+    "date": "2026-10-05",
+    "venue": "Main Auditorium",
+    "description": "Dance, music, theatre, and food stalls celebrating student culture.",
+    "image": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 3,
+    "title": "Startup Pitch Night",
+    "category": "Business",
+    "date": "2026-10-12",
+    "venue": "Entrepreneurship Lab",
+    "description": "Students pitch innovative ideas to industry mentors and investors.",
+    "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 4,
+    "title": "Robotics Workshop",
+    "category": "Technology",
+    "date": "2026-10-19",
+    "venue": "STEM Block",
+    "description": "Hands-on robotics session covering sensors, coding, and automation.",
+    "image": "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 5,
+    "title": "Art & Design Carnival",
+    "category": "Arts",
+    "date": "2026-10-25",
+    "venue": "Creative Courtyard",
+    "description": "An exhibition of digital art, poster design, and mixed media work.",
+    "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 6,
+    "title": "Leadership Summit",
+    "category": "Leadership",
+    "date": "2026-11-02",
+    "venue": "Seminar Hall",
+    "description": "A discussion on leadership principles, teamwork, and public speaking.",
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 7,
+    "title": "Hackathon Sprint",
+    "category": "Technology",
+    "date": "2026-11-09",
+    "venue": "Coding Arena",
+    "description": "A rapid 24-hour coding challenge focused on problem-solving and product thinking.",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 8,
+    "title": "Poetry Evening",
+    "category": "Arts",
+    "date": "2026-11-15",
+    "venue": "Open Air Stage",
+    "description": "Student poets and spoken-word artists perform original work.",
+    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 9,
+    "title": "Career Guidance Forum",
+    "category": "Career",
+    "date": "2026-11-23",
+    "venue": "Placement Cell",
+    "description": "Industry professionals guide students on internships and placements.",
+    "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 10,
+    "title": "Sports Fest",
+    "category": "Sports",
+    "date": "2026-11-28",
+    "venue": "University Grounds",
+    "description": "Track events, team games, and inter-department athletic competitions.",
+    "image": "https://images.unsplash.com/photo-1547347298-4074fc3086f0?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 11,
+    "title": "Women in STEM Panel",
+    "category": "Technology",
+    "date": "2026-12-03",
+    "venue": "Conference Room A",
+    "description": "A panel discussing innovation, opportunities, and challenges in STEM.",
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 12,
+    "title": "Quiz Bee Finals",
+    "category": "Academics",
+    "date": "2026-12-10",
+    "venue": "Lecture Complex",
+    "description": "A thrilling academic contest among teams from multiple departments.",
+    "image": "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 13,
+    "title": "Volunteer Day",
+    "category": "Community",
+    "date": "2026-12-18",
+    "venue": "City Outreach Center",
+    "description": "Students contribute to social service and community outreach activities.",
+    "image": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 14,
+    "title": "Photography Walk",
+    "category": "Arts",
+    "date": "2027-01-07",
+    "venue": "Heritage District",
+    "description": "Capture powerful street scenes, portraits, and campus moments.",
+    "image": "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 15,
+    "title": "Cloud Computing Seminar",
+    "category": "Technology",
+    "date": "2027-01-14",
+    "venue": "Data Center Lab",
+    "description": "Learn the fundamentals of cloud architecture, deployment, and scalability.",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
+  }
+]

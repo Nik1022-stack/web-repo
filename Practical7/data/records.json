@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Neel Patel",
+        "email": "neelp1169@gmail.com",
+        "phone": "8780627815",
+        "course": "Database Management",
+        "message": "asdfghgfdsxcvb fdsxcvb",
+        "submitted_at": "2026-09-21 10:05:15"
+    },
+    {
+        "name": "Neel Patel",
+        "email": "neelp1169@gmail.com",
+        "phone": "8780627815",
+        "course": "Database Management",
+        "message": "kuygfc njuyfc hytrfdc",
+        "submitted_at": "2026-09-21 10:16:59"
+    },
+    {
+        "name": "Neel Patel",
+        "email": "neelp1169@gmail.com",
+        "phone": "8780627815",
+        "course": "Database Management",
+        "message": "lkjhgfgdgbgsxvkjsdbclsjdh ls dkzkshj",
+        "submitted_at": "2026-10-08 09:16:29"
+    },
+    {
+        "name": "Neel Patel",
+        "email": "neelp1169@gmail.com",
+        "phone": "8780627815",
+        "course": "Web Development",
+        "message": "Testing registration form submission from terminal.",
+        "submitted_at": "2026-10-21 18:33:02"
+    }
+]
